@@ -1,0 +1,32 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="trial_report.work_content_tree">
+			<field name="name">trial_report work_content tree</field>
+			<field name="model">trial_report.work_content</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="week" string="Tuần"/>
+					<field name="from_date" string="Ngày bắt đầu"/>
+					<field name="end_date" string="Ngày kết thúc"/>
+					<field name="content" string="Nội dung công việc" />
+					<field name="status" string="Tình trạng"/>
+					<field name="note" string="Ghi chú"/>
+					<field name="created_by" string="Người tạo" groups="trial_report.trial_report_group_admin"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="trial_report.input_tree">
+			<field name="name">trial_report input tree</field>
+			<field name="model">trial_report.input</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="employee_id" string="Nhân viên"/>
+					<field name="manager_id" string="Quản lý"/>
+					<field name="grade_id" string="Vị trí"/>
+				</tree>
+			</field>
+		</record>
+	</data>
+</odoo>
+   

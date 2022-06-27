@@ -1,0 +1,115 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="trial_report_input_form">
+			<field name="name">trial report input form</field>
+			<field name="model">trial_report.input</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="d-flex">
+							<div
+								class="d-flex align-items-center justify-content-center w-50">
+								<img src="trial_report/static/src/img/about_viindoo.png"
+									width="200" height="50" />
+							</div>
+							<div class="d-flex align-items-center justify-content-center">
+								<div>
+									<group>
+										<div class="text-center oe_only">
+											<p class="o_form_label" style="font-size:20px">
+												CÔNG TY CỔ PHẦN CÔNG NGHỆ
+												VIINDOO
+											</p>
+										</div>
+									</group>
+									<group>
+										<div class="text-center oe_only">
+											<p class="o_form_label" style="font-size:15px">
+												Địa chỉ: Tầng 6, Tòa nhà
+												Taiyo,
+												Số 97 Bạch Đằng,
+												Quận Hồng Bàng, TP Hải Phòng
+
+											</p>
+										</div>
+									</group>
+								</div>
+							</div>
+						</div>
+						<div>
+							<p class="o_form_label">
+								<h1
+									style="text-align:center;margin-top:30px;margin-bottom:30px;">BÁO CÁO KẾT QUẢ THỬ VIỆC HỌC VIỆC LẦN 1</h1>
+							</p>
+						</div>
+						<group>
+							<field name="employee_id" domain="[('user_id','=',uid)]"
+								string="Nhân viên" />
+						</group>
+						<group>
+							<group>
+								<field name="birthday" string="Ngày sinh" />
+								<field name="work_phone" string="Số điện thoại" />
+								<field name="grade_id" string="Chức vụ" />
+							</group>
+							<group>
+								<field name="department_id" string="Bộ phận" />
+								<field name="manager_id" string="Quản lý" />
+								<field name="coach_id" string="Người huấn luyện" />
+							</group>
+						</group>
+						<group>
+							<field name="probationary_start_day" string="Ngày thử việc" />
+							<field name="probationary_end_day" string="Ngày kết thúc" />
+						</group>
+						<group>
+							<field name="assigned_work" string="Công việc được giao" />
+						</group>
+						<group>
+							<field name="work_content" widget="Many2many_tags"
+								string="Kế hoạch chi tiết" />
+						</group>
+						<group>
+							<group>
+								<field name="difficulties" string="Khó khăn tồn tại" />
+							</group>
+							<group>
+								<field name="suggest_support" string="Đề xuất" />
+							</group>
+							<group>
+								<field name="mentors_comments"
+									string="Ý kiến người hướng dẫn" />
+							</group>
+							<group>
+								<field name="manager_comments"
+									string="Ý kiến người quản lý" />
+							</group>
+							<group>
+								<field name="hr_comments" string="Ý kiến nhân sự" />
+							</group>
+							<group>
+								<field name="company_comments"
+									string="Ý kiến ban lãnh đạo" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="trial_report_work_content_form">
+			<field name="name">trial report work content form</field>
+			<field name="model">trial_report.work_content</field>
+			<field name="arch" type="xml">
+				<form>
+					<field name="week" string="Tuần" />
+					<field name="from_date" string="Ngày bắt đầu" />
+					<field name="end_date" string="Ngày kết thúc" />
+					<field name="content" string="Nội dung công việc" />
+					<field name="status" string="Tình trạng" />
+					<field name="note" string="Ghi chú" />
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>

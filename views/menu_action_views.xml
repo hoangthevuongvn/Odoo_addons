@@ -1,0 +1,28 @@
+<odoo>
+	<data>
+		<record id="trial_report.input_action_window"
+			model="ir.actions.act_window">
+			<field name="name">trial_report_input action</field>
+			<field name="res_model">trial_report.input</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<record id="trial_report.work_content_action_window"
+			model="ir.actions.act_window">
+			<field name="name">trial_report_work_content action</field>
+			<field name="res_model">trial_report.work_content</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Trial Report" id="trial_report.menu_root" />
+		<menuitem name="Nội dung báo báo" id="trial_report.menu_1"
+			parent="trial_report.menu_root"
+			action="trial_report.input_action_window" />
+		<menuitem name="Bảng chi tiết công việc được giao"
+			id="trial_report.menu_2" parent="trial_report.menu_root"
+			action="trial_report.work_content_action_window" />
+
+
+
+	</data>
+</odoo>

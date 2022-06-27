@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_trial_report_input_admin,trial report input,model_trial_report_input,trial_report_group_admin,1,1,1,1
+access_trial_report_work_content_admin,trial report work_content,model_trial_report_work_content,trial_report_group_admin,1,1,1,1
+access_trial_report_input_user,trial report input,model_trial_report_input,trial_report_group_user,1,1,1,1
+access_trial_report_work_content_user,trial report work_content,model_trial_report_work_content,trial_report_group_user,1,1,1,1

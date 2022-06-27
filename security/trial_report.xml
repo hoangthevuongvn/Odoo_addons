@@ -1,0 +1,84 @@
+<odoo>
+	<record id="module_trial_report_category"
+		model="ir.module.category">
+		<field name="name">Trial Report</field>
+		<field name="sequence">10</field>
+	</record>
+
+
+	<record id="module_trial_report" model="ir.module.category">
+		<field name="name">Trial report</field>
+		<field name="parent_id" ref="module_trial_report_category" />
+		<field name="description">Helps you handle trial report</field>
+		<field name="sequence">10</field>
+	</record>
+
+	<record id="trial_report_group_user" model="res.groups">
+		<field name="name">User</field>
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+		<field name="category_id" ref="module_trial_report" />
+		<field name="comment">Users belong to this group can use this application
+		</field>
+	</record>
+
+
+	<record id="trial_report_group_admin" model="res.groups">
+		<field name="name">Administrator</field>
+		<field name="implied_ids"
+			eval="[(4, ref('trial_report_group_user'))]" />
+		<field name="category_id" ref="module_trial_report" />
+		<field name="users"
+			eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]" />
+		<field name="comment">Users belong to this group can use this application
+		</field>
+	</record>
+
+
+
+	<record id='trial_report.input_user_rule' model='ir.rule'>
+		<field name='name'>trial report input user rule</field>
+		<field name='model_id' ref='model_trial_report_input' />
+		<field name='domain_force'>[('create_uid','=',user.id)]</field>
+		<field name='groups'
+			eval="[(4, ref('trial_report_group_user'))]" />
+		<field name='perm_read' eval='True' />
+		<field name='perm_write' eval='True' />
+		<field name='perm_create' eval='True' />
+		<field name='perm_unlink' eval='True' />
+	</record>
+
+	<record id='trial_report.work_content_user_rule' model='ir.rule'>
+		<field name='name'>trial report work content user rule</field>
+		<field name='model_id' ref='model_trial_report_work_content' />
+		<field name='domain_force'>[(1,'=',1)]</field>
+		<field name='groups'
+			eval="[(4, ref('trial_report_group_admin'))]" />
+		<field name='perm_read' eval='True' />
+		<field name='perm_write' eval='True' />
+		<field name='perm_create' eval='True' />
+		<field name='perm_unlink' eval='True' />
+	</record>
+
+	<record id='trial_report.input_admin_rule' model='ir.rule'>
+		<field name='name'>trial report input admin rule</field>
+		<field name='model_id' ref='model_trial_report_input' />
+		<field name='domain_force'>[(1,'=',1)]</field>
+		<field name='groups'
+			eval="[(4, ref('trial_report_group_admin'))]" />
+		<field name='perm_read' eval='True' />
+		<field name='perm_write' eval='True' />
+		<field name='perm_create' eval='True' />
+		<field name='perm_unlink' eval='True' />
+	</record>
+
+	<record id='trial_report.work_content_admin_rule' model='ir.rule'>
+		<field name='name'>trial report work content admin rule</field>
+		<field name='model_id' ref='model_trial_report_work_content' />
+		<field name='domain_force'>[('create_uid','=',user.id)]</field>
+		<field name='groups' eval="[(4, ref('base.group_user'))]"/>
+		<field name='perm_read' eval='True' />
+		<field name='perm_write' eval='True' />
+		<field name='perm_create' eval='True' />
+		<field name='perm_unlink' eval='True' />
+	</record>
+</odoo>
